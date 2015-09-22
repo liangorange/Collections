@@ -10,8 +10,6 @@ public class Main {
         // HashMap allows null keys and null values, doesn't guarantee the order of the list
         Map<String, Integer> hashMap = new HashMap<>();
 
-
-        
         // Add some values
         hashMap.put("Johnny", 1);
         hashMap.put("Stacey", 3);
@@ -104,16 +102,16 @@ public class Main {
     }
 
 
+    /**
+     * hashSetExample
+     * Definition: Set interface extends Collection interface. In a set, no duplicates are allowed.
+     * Every element in a set must be unique.
+     * You can simply add elements to a set, and duplicates will be removed automatically.
+     *
+     *
+     */
+    public static void hashSetExample() {
 
-    public static void main(String[] args) {
-
-        // hashMapExample();
-        // treeMapExample();
-
-        arrayListExample();
-
-
-        /*
         // Hash set use hash table to store information
         Set<String> hashSet = new HashSet<>();
 
@@ -129,6 +127,20 @@ public class Main {
             System.out.println(hashIterator.next());
         }
 
+        // Check to see if certain element is in the set
+        if (hashSet.contains("Element 2")) {
+            System.out.println("The element is in the set");
+        } else {
+            System.out.println("The set doesn't contain the element");
+        }
+    }
+
+    /**
+     * treeSetExample
+     * TreeSet is a special type of set which will automatically sort the list when user add items
+     * in it.
+     */
+    public static void treeSetExample() {
 
         // TreeSet will automatically sort the list when you put in the set
         Set<String> treeSet = new TreeSet<>();
@@ -136,15 +148,60 @@ public class Main {
         treeSet.add("Element 1");
         treeSet.add("Element 3");
         treeSet.add("Element 2");
-        treeSet.add("Element 1");
+        treeSet.add("Element 4");
 
+        // parse into iterator
         Iterator<String> iterator = treeSet.iterator();
 
         while (iterator.hasNext()) {
             System.out.println(iterator.next());
-
         }
-        */
+
+        // Search an element in the set
+        String searcher = "Element 5";
+        if (treeSet.contains(searcher)) {
+            System.out.println("The element: " + searcher + " is in the set");
+        } else {
+            System.out.println("The element: " + searcher + " is not in the set");
+        }
+
+
+        // Create second tree set
+        Set<String> newTreeSet = new TreeSet<>();
+
+        newTreeSet.add("Element 1");
+        newTreeSet.add("Element 3");
+        newTreeSet.add("Element 5");
+        newTreeSet.add("Element 7");
+
+        // Union set of treeSet and newTreeSet
+        Set<String> union = new TreeSet<>(treeSet);
+        union.addAll(newTreeSet);
+        System.out.println(union);
+
+        // Intersection of treeSet and newTreeSet
+        Set<String> intersect = new TreeSet<>(treeSet);
+        intersect.retainAll(newTreeSet);
+        System.out.println(intersect);
+
+        // Set only contains in treeSet not in newTreeSet
+        Set<String> difference = new TreeSet<>(treeSet);
+        difference.removeAll(newTreeSet);
+        System.out.println(difference);
+
+    }
+
+
+    public static void main(String[] args) {
+
+        // hashMapExample();
+        // treeMapExample();
+
+
+        // arrayListExample();
+
+        // hashSetExample();
+        treeSetExample();
 
 
     }
