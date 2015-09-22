@@ -10,6 +10,8 @@ public class Main {
         // HashMap allows null keys and null values, doesn't guarantee the order of the list
         Map<String, Integer> hashMap = new HashMap<>();
 
+
+        
         // Add some values
         hashMap.put("Johnny", 1);
         hashMap.put("Stacey", 3);
